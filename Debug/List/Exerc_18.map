@@ -1,0 +1,100 @@
+###############################################################################
+#
+# IAR ELF Linker V9.10.2.313/W64 for ARM                  29/Jul/2021  16:50:03
+# Copyright 2007-2021 IAR Systems AB.
+#
+#    Output file  =  C:\Users\Pichau\Desktop\Exerc_18\Debug\Exe\Exerc_18.out
+#    Map file     =  C:\Users\Pichau\Desktop\Exerc_18\Debug\List\Exerc_18.map
+#    Command line =
+#        -f C:\Users\Pichau\Desktop\Exerc_18\Debug\Exe\Exerc_18.out.rsp
+#        (C:\Users\Pichau\Desktop\Exerc_18\Debug\Obj\asm.o --no_out_extension
+#        -o C:\Users\Pichau\Desktop\Exerc_18\Debug\Exe\Exerc_18.out --redirect
+#        _Printf=_PrintfFullNoMb --redirect _Scanf=_ScanfFullNoMb --map
+#        C:\Users\Pichau\Desktop\Exerc_18\Debug\List\Exerc_18.map --config
+#        "C:\Program Files\IAR Systems\Embedded Workbench
+#        9.0\arm\config\linker\TexasInstruments\TM4C1290NC.icf" --semihosting
+#        --no_library_search --entry __iar_program_start --vfe --text_out
+#        locale)
+#
+###############################################################################
+
+*******************************************************************************
+*** PLACEMENT SUMMARY
+***
+
+"A0":  place at address 0x0 { ro section .intvec };
+"P1":  place in [from 0x0 to 0xf'ffff] { ro };
+define block CSTACK with size = 32K, alignment = 8 { };
+define block HEAP with size = 64K, alignment = 8 { };
+"P2":  place in [from 0x2000'0000 to 0x2003'ffff] {
+          rw, block CSTACK, block HEAP };
+
+No sections matched the following patterns:
+
+  rw  in "P2"
+
+
+  Section   Kind         Address    Size  Object
+  -------   ----         -------    ----  ------
+"A0":                               0x40
+  .intvec   ro code          0x0    0x40  asm.o [1]
+                          - 0x40    0x40
+
+"P1":                              0x102
+  .text     ro code         0x40   0x100  asm.o [1]
+  .text     ro code        0x140     0x2  asm.o [1]
+                         - 0x142   0x102
+
+"P2":                             0x8000
+  CSTACK             0x2000'0000  0x8000  <Block>
+    CSTACK  uninit   0x2000'0000  0x8000  <Block tail>
+                   - 0x2000'8000  0x8000
+
+Unused ranges:
+
+         From           To      Size
+         ----           --      ----
+        0x142     0xf'ffff  0xf'febe
+  0x2000'8000  0x2003'ffff  0x3'8000
+
+
+
+*******************************************************************************
+*** MODULE SUMMARY
+***
+
+    Module          ro code  rw data
+    ------          -------  -------
+command line/config:
+    --------------------------------
+    Total:
+
+C:\Users\Pichau\Desktop\Exerc_18\Debug\Obj: [1]
+    asm.o               322
+    --------------------------------
+    Total:              322
+
+    Linker created            32'768
+------------------------------------
+    Grand Total:        322   32'768
+
+
+*******************************************************************************
+*** ENTRY LIST
+***
+
+Entry                    Address  Size  Type      Object
+-----                    -------  ----  ----      ------
+CSTACK$$Base         0x2000'0000         --   Gb  - Linker created -
+CSTACK$$Limit        0x2000'8000         --   Gb  - Linker created -
+__iar_program_start         0x41        Code  Gb  asm.o [1]
+__vector_table               0x0        Data  Gb  asm.o [1]
+
+
+[1] = C:\Users\Pichau\Desktop\Exerc_18\Debug\Obj
+
+     322 bytes of readonly  code memory
+  32'768 bytes of readwrite data memory
+
+Errors: none
+Warnings: none
